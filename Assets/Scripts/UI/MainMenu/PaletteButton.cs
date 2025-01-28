@@ -14,8 +14,11 @@ public class PaletteButton : MonoBehaviour, ISelectHandler {
 
     public void Instantiate(CharacterAsset player) {
         if (palette == null) {
-            shirt.enabled = false;
-            overalls.enabled = false;
+            if (shirt && overalls)
+            {
+                Destroy(shirt.gameObject);
+                Destroy(overalls.gameObject);
+            }
             return;
         }
 
